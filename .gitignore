@@ -19,3 +19,6 @@ Thumbs.db
 
 # Raw datasets - keep locally, do not commit
 data/raw/*
+
+# Intermediate datasets
+data/interim/*
