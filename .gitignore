@@ -1,0 +1,27 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Raw datasets - keep locally, do not commit
+data/raw/*
+
+# Intermediate datasets
+data/interim/*
+
+# Generated processed datasets
+data/processed/*
