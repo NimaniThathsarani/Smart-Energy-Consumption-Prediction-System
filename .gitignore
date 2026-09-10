@@ -22,3 +22,6 @@ data/raw/*
 
 # Intermediate datasets
 data/interim/*
+
+# Generated processed datasets
+data/processed/*
