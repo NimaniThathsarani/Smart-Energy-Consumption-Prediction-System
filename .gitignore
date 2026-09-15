@@ -25,3 +25,10 @@ data/interim/*
 
 # Generated processed datasets
 data/processed/*
+
+# Large datasets
+data/*.csv
+
+# Trained models
+models/*.pkl
+models/*.joblib
