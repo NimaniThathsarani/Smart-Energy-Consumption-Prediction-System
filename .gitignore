@@ -16,9 +16,3 @@ __pycache__/
 # Operating system
 .DS_Store
 Thumbs.db
-
-# Raw datasets - keep locally, do not commit
-data/raw/*
-
-# Intermediate datasets
-data/interim/*
