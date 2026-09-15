@@ -1,0 +1,123 @@
+{
+  "rows": 2075259,
+  "columns": 10,
+  "schema": {
+    "expected_columns": [
+      "Date",
+      "Time",
+      "Global_active_power",
+      "Global_reactive_power",
+      "Voltage",
+      "Global_intensity",
+      "Sub_metering_1",
+      "Sub_metering_2",
+      "Sub_metering_3",
+      "Timestamp"
+    ],
+    "actual_columns": [
+      "Date",
+      "Time",
+      "Global_active_power",
+      "Global_reactive_power",
+      "Voltage",
+      "Global_intensity",
+      "Sub_metering_1",
+      "Sub_metering_2",
+      "Sub_metering_3",
+      "Timestamp"
+    ],
+    "missing_columns": [],
+    "unexpected_columns": [],
+    "columns_in_expected_order": true
+  },
+  "timestamp": {
+    "invalid_timestamps": 0,
+    "chronologically_sorted": true,
+    "duplicate_timestamps": 0,
+    "expected_frequency": "0 days 00:01:00",
+    "observed_frequency_values": {
+      "0 days 00:01:00": 2075258
+    },
+    "irregular_intervals": 0,
+    "missing_timestamps": 0,
+    "first_missing_timestamp": null,
+    "last_missing_timestamp": null,
+    "start_timestamp": "2006-12-16T17:24:00",
+    "end_timestamp": "2010-11-26T21:02:00"
+  },
+  "exact_duplicate_rows": 0,
+  "measurements": {
+    "Global_active_power": {
+      "missing_values": 25903,
+      "non_numeric_values": 0,
+      "infinite_values": 0,
+      "negative_values": 0,
+      "minimum": 0.076,
+      "maximum": 11.122
+    },
+    "Global_reactive_power": {
+      "missing_values": 25903,
+      "non_numeric_values": 0,
+      "infinite_values": 0,
+      "negative_values": 0,
+      "minimum": 0.0,
+      "maximum": 1.39
+    },
+    "Voltage": {
+      "missing_values": 25903,
+      "non_numeric_values": 0,
+      "infinite_values": 0,
+      "negative_values": 0,
+      "minimum": 223.2,
+      "maximum": 254.15
+    },
+    "Global_intensity": {
+      "missing_values": 25903,
+      "non_numeric_values": 0,
+      "infinite_values": 0,
+      "negative_values": 0,
+      "minimum": 0.2,
+      "maximum": 48.4
+    },
+    "Sub_metering_1": {
+      "missing_values": 25903,
+      "non_numeric_values": 0,
+      "infinite_values": 0,
+      "negative_values": 0,
+      "minimum": 0.0,
+      "maximum": 88.0
+    },
+    "Sub_metering_2": {
+      "missing_values": 25903,
+      "non_numeric_values": 0,
+      "infinite_values": 0,
+      "negative_values": 0,
+      "minimum": 0.0,
+      "maximum": 80.0
+    },
+    "Sub_metering_3": {
+      "missing_values": 25903,
+      "non_numeric_values": 0,
+      "infinite_values": 0,
+      "negative_values": 0,
+      "minimum": 0.0,
+      "maximum": 31.0
+    }
+  },
+  "dtypes": {
+    "Date": "string",
+    "Time": "string",
+    "Global_active_power": "float64",
+    "Global_reactive_power": "float64",
+    "Voltage": "float64",
+    "Global_intensity": "float64",
+    "Sub_metering_1": "float64",
+    "Sub_metering_2": "float64",
+    "Sub_metering_3": "float64",
+    "Timestamp": "datetime64[ns]"
+  },
+  "input_kind": "intermediate",
+  "cleaning_summary": null,
+  "long_gap_policy": "Retain timestamp rows and remaining measurement NaN values. Downstream model-specific steps must handle or exclude them explicitly.",
+  "quality_check_passed": true
+}
