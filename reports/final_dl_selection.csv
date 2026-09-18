@@ -1,0 +1,2 @@
+Selected_Model,Architecture,Units,Dropout,Window_Size,Batch_Size,Optimizer,Epochs,MAE,RMSE,MAPE,R2
+Tuned LSTM,LSTM,128,0.3,60,64,Adam,3,0.007717,0.018971,13.91,0.940856
