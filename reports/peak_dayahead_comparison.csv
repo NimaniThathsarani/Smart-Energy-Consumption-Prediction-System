@@ -1,0 +1,7 @@
+approach,test days,peak MAE (kW),peak RMSE (kW),period accuracy
+Random Forest (day-ahead),63,0.5969,0.7922,0.3651
+Last 14 days (day-ahead),63,0.5279,0.7216,0.3492
+Yesterday (day-ahead),63,0.702,0.9876,0.3492
+Train mean / 'evening' (constant),63,0.7553,0.9997,0.4127
+"Tuned LSTM (G4) (forecast-based, same days)",63,0.0633,0.0921,0.9206
+"XGBoost (G3) (forecast-based, same days)",63,0.0243,0.0307,1.0

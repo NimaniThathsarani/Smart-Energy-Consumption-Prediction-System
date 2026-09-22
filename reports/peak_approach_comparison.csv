@@ -1,0 +1,7 @@
+approach,days,peak MAE (kW),peak RMSE (kW),peak bias (kW),timing exact,within 1h,within 2h
+Tuned LSTM (G4) (forecast-based),213,0.041,0.0642,-0.0297,0.9437,0.9531,0.9577
+XGBoost (G3) (forecast-based),213,0.0192,0.027,-0.0027,0.9812,0.9859,0.9953
+ARIMA (G3) (forecast-based),213,1.3661,1.5567,-1.3627,0.0329,0.1127,0.169
+Yesterday's peak,212,0.5715,0.778,-0.0009,0.1368,0.3066,0.4057
+Same day last week,197,0.5634,0.7581,0.0236,0.1168,0.2234,0.2944
+"Last 14 days (mean value, most common hour)",206,0.4852,0.6226,-0.0203,0.1456,0.2913,0.3592
