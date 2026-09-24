@@ -1,0 +1,10 @@
+priority,recommendation_type,count
+CRITICAL,Anomaly Investigation,2
+CRITICAL,Extreme Peak Reduction,52
+HIGH,Anomaly Investigation,10
+HIGH,Forecast High Consumption,239
+HIGH,Forecast Peak Prevention,1
+HIGH,Peak Demand Reduction,192
+LOW,Normal Operation,2634
+MEDIUM,Consumption Reduction,1658
+MEDIUM,Load Shifting,326

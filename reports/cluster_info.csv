@@ -1,0 +1,5 @@
+cluster,avg_consumption,peak_consumption,min_consumption,std_consumption,avg_voltage,avg_sub1,avg_sub2,avg_sub3,avg_morning,avg_evening,avg_night,is_weekend,cluster_name,num_days
+0,0.509,2.751,0.165,0.439,241.22,0.152,0.443,3.048,0.555,0.583,0.427,0.293,Low Consumption Pattern,205
+1,1.157,5.394,0.237,0.909,241.79,0.883,0.774,7.443,1.49,1.581,0.516,0.178,High Consumption Pattern,545
+2,1.647,7.275,0.228,1.342,240.935,2.244,2.989,8.228,1.622,2.537,0.686,0.528,Peak-Heavy Pattern,286
+3,0.894,5.395,0.149,0.879,239.221,1.138,1.231,5.562,1.06,1.288,0.392,0.242,Moderate Consumption Pattern,384
