@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Smart energy consumption monitoring and forecasting dashboard" />
+    <title>WattWise | Energy Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <a class="brand" href="#overview" aria-label="WattWise dashboard home">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13.4 2 5.7 13.1h5.1L9.9 22l8.4-12.3h-5.2L13.4 2Z"/></svg></span>
+          <span>Watt<span>Wise</span></span>
+        </a>
+        <nav class="nav-list">
+          <a class="nav-item active" href="#overview"><span class="nav-icon">⌂</span><span>Overview</span></a>
+          <a class="nav-item" href="#consumption"><span class="nav-icon">⌁</span><span>Consumption</span></a>
+          <a class="nav-item" href="#alerts"><span class="nav-icon">◇</span><span>Alerts</span></a>
+          <a class="nav-item" href="#insights"><span class="nav-icon">✦</span><span>Insights</span></a>
+          <a class="nav-item" href="#performance"><span class="nav-icon">◎</span><span>Models</span></a>
+        </nav>
+        <div class="system-card">
+          <p>System status</p>
+          <strong><i></i> All systems operational</strong>
+          <small id="sidebar-updated">Awaiting first sync</small>
+        </div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <button class="mobile-menu" id="mobile-menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+          <div><p class="eyebrow">Energy intelligence</p><h1>Good <span id="greeting-time">day</span>, Energy Manager</h1></div>
+          <div class="topbar-actions">
+            <label class="range-control"><span>Time range</span><select id="range-select" aria-label="Chart time range"><option value="24">Last 24 hours</option><option value="72">Last 3 days</option><option value="168" selected>Last 7 days</option><option value="336">Last 14 days</option></select></label>
+            <button class="icon-button" id="refresh-button" aria-label="Refresh dashboard" title="Refresh data"><svg viewBox="0 0 24 24"><path d="M20 6v5h-5M4 18v-5h5M18.5 9A7 7 0 0 0 6.2 6.2L4 8m16 8-2.2 1.8A7 7 0 0 1 5.5 15"/></svg></button>
+          </div>
+        </header>
+
+        <div class="error-banner" id="error-banner" role="alert" hidden><span>!</span><p><strong>Some live data could not be loaded.</strong> <span id="error-message">Check the API connection.</span></p><button id="retry-button">Try again</button></div>
+
+        <section class="hero" id="overview">
+          <div><p class="section-kicker">Live consumption</p><div class="live-value"><strong id="current-value">—</strong><span>kW</span></div><div class="trend-line"><span class="trend-pill" id="consumption-trend">—</span><span>compared with previous reading</span></div></div>
+          <div class="hero-pulse" aria-hidden="true"><span></span><span></span><i></i></div>
+          <div class="hero-summary"><span>Current state</span><strong id="current-state">Loading</strong><small id="current-timestamp">Waiting for live data</small></div>
+        </section>
+
+        <section class="stat-grid" aria-label="Energy summary">
+          <article class="stat-card"><div class="stat-head"><span class="stat-icon blue">↗</span><span class="status-dot">Forecast</span></div><p>Next predicted demand</p><div class="stat-value"><strong id="forecast-value">—</strong><span>kW</span></div><small id="forecast-time">No forecast available</small></article>
+          <article class="stat-card"><div class="stat-head"><span class="stat-icon amber">⌁</span><span class="status-dot warning">Peak window</span></div><p>Predicted peak</p><div class="stat-value"><strong id="peak-value">—</strong><span>kW</span></div><small id="peak-time">No peak prediction available</small></article>
+          <article class="stat-card"><div class="stat-head"><span class="stat-icon coral">!</span><span class="status-dot danger">Attention</span></div><p>Detected anomalies</p><div class="stat-value"><strong id="anomaly-count">—</strong><span>events</span></div><small id="anomaly-summary">Analyzing recent readings</small></article>
+          <article class="stat-card"><div class="stat-head"><span class="stat-icon green">✓</span><span class="status-dot success">Model health</span></div><p>Forecast accuracy</p><div class="stat-value"><strong id="accuracy-value">—</strong><span>%</span></div><small id="accuracy-model">Waiting for performance data</small></article>
+        </section>
+
+        <section class="content-grid" id="consumption">
+          <article class="panel consumption-panel">
+            <div class="panel-head"><div><p class="section-kicker">Usage timeline</p><h2>Consumption &amp; forecast</h2></div><div class="chart-legend"><span><i></i>Actual</span><span><i class="predicted"></i>Predicted</span></div></div>
+            <div class="chart-summary"><div><span>Average</span><strong id="average-value">— kW</strong></div><div><span>Range</span><strong id="range-value">— kW</strong></div><div><span>Forecast MAE</span><strong id="mae-value">—</strong></div></div>
+            <div class="line-chart skeleton" id="consumption-chart" aria-label="Actual and predicted consumption line chart"></div>
+          </article>
+          <article class="panel peak-panel">
+            <div class="panel-head"><div><p class="section-kicker">Demand outlook</p><h2>Next peak</h2></div><span class="mini-badge amber">Predicted</span></div>
+            <div class="peak-visual"><div class="peak-ring"><div><strong id="peak-ring-value">—</strong><span>kW</span></div></div><div class="peak-details"><div><span>Date</span><strong id="peak-date">—</strong></div><div><span>Expected time</span><strong id="peak-clock">—</strong></div><div><span>Demand period</span><strong id="peak-period">—</strong></div></div></div>
+            <div class="peak-note"><span>i</span><p id="peak-note">Peak guidance will appear when prediction data is available.</p></div>
+          </article>
+        </section>
+
+        <section class="content-grid secondary-grid">
+          <article class="panel alerts-panel" id="alerts"><div class="panel-head"><div><p class="section-kicker">Automated detection</p><h2>Anomaly alerts</h2></div><button class="text-button" id="show-all-alerts">Show all</button></div><div class="alert-list" id="alert-list"><div class="empty-state">Loading alerts…</div></div></article>
+          <article class="panel cluster-panel" id="insights"><div class="panel-head"><div><p class="section-kicker">Behavior profile</p><h2>Consumption clusters</h2></div><span class="mini-badge">Daily patterns</span></div><div class="cluster-layout"><div class="donut" id="cluster-donut"><div><strong id="cluster-total">—</strong><span>days</span></div></div><div class="cluster-legend" id="cluster-legend"><div class="empty-state">Loading clusters…</div></div></div></article>
+        </section>
+
+        <section class="content-grid bottom-grid">
+          <article class="panel recommendations-panel"><div class="panel-head"><div><p class="section-kicker">Action center</p><h2>Smart recommendations</h2></div><span class="mini-badge green">AI prioritized</span></div><div class="recommendation-list" id="recommendation-list"><div class="empty-state">Loading recommendations…</div></div></article>
+          <article class="panel performance-panel" id="performance"><div class="panel-head"><div><p class="section-kicker">Validation metrics</p><h2>Model performance</h2></div><span class="mini-badge green">Validated</span></div><div class="table-wrap"><table><thead><tr><th>Model</th><th>MAE</th><th>RMSE</th><th>R²</th><th>Status</th></tr></thead><tbody id="performance-body"><tr><td colspan="5" class="empty-state">Loading model metrics…</td></tr></tbody></table></div></article>
+        </section>
+
+        <footer><span>WattWise Smart Energy System</span><span id="footer-sync">Data has not been synchronized</span></footer>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

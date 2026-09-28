@@ -1,0 +1,10 @@
+{
+  "name": "smart-energy-consumption-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test --test-isolation=none tests/dashboard_core.test.mjs",
+    "test:integration": "python -m unittest tests/test_dashboard_integration.py",
+    "dashboard": "python tests/mock_dashboard_server.py"
+  }
+}
